@@ -8,9 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import java.lang.IllegalArgumentException
 
-abstract class BaseFragment<VB: ViewBinding>(
-    private val bindingInflater: (inflater: LayoutInflater) -> VB
-): Fragment() {
+abstract class BaseFragment<VB : ViewBinding>(
+    private val bindingInflater: (inflater: LayoutInflater) -> VB) : Fragment() {
 
     private var _binding: VB? = null
 
@@ -23,7 +22,7 @@ abstract class BaseFragment<VB: ViewBinding>(
         savedInstanceState: Bundle?
     ): View? {
         _binding = bindingInflater.invoke(inflater)
-        if(_binding == null)
+        if (_binding == null)
             throw IllegalArgumentException("Binding cannot be null")
         return binding.root
     }
