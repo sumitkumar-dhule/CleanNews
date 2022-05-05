@@ -46,7 +46,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:ellipsize="end"
-        android:maxLines="5"
+        android:maxLines="4"
         android:text="DESCRIPTION"
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,5 +62,17 @@
         android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSource" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="2dp"
+        android:background="#AFA9A9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPublishedAt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

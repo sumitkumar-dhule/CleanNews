@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/breakingNewsFragment">
+    android:id="@+id/news_nav_graph"
+    app:startDestination="@id/breakingNewsFragment">
 
     <fragment
         android:id="@+id/breakingNewsFragment"
         android:name="com.example.cleannews.ui.breakingnews.BreakingNewsFragment"
-        android:label="@string/title_breaking_news"
-        tools:layout="@layout/fragment_breaking_news" >
+        android:label="BreakingNewsFragment" >
         <action
-            android:id="@+id/action_navigation_home_to_articleFragment"
-            app:destination="@id/articleFragment" />
+            android:id="@+id/action_breakingNewsFragment_to_articleNewsFragment"
+            app:destination="@id/articleNewsFragment"
+            />
     </fragment>
 
     <fragment
         android:id="@+id/savedNewsFragment"
         android:name="com.example.cleannews.ui.savednews.SavedNewsFragment"
-        android:label="@string/title_saved_news"
-        tools:layout="@layout/fragment_saved_news" >
+        android:label="SavedNewsFragment" >
         <action
-            android:id="@+id/action_navigation_dashboard_to_articleFragment"
-            app:destination="@id/articleFragment" />
+            android:id="@+id/action_savedNewsFragment_to_articleNewsFragment"
+            app:destination="@id/articleNewsFragment"
+            />
     </fragment>
     <fragment
-        android:id="@+id/articleFragment"
-        android:name="com.example.cleannews.ui.article.ArticleFragment"
-        android:label="ArticleFragment" />
-
+        android:id="@+id/articleNewsFragment"
+        android:name="com.example.cleannews.ui.article.ArticleNewsFragment"
+        android:label="ArticleNewsFragment">
+        <argument
+            android:name="article"
+            app:argType="com.example.cleannews.model.Article" />
+    </fragment>
 </navigation>
