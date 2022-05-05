@@ -21,17 +21,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NewsViewModel @Inject constructor(
-    app: Application,
-    private val newsRepository: NewsRepository
-) : AndroidViewModel(app){
+                    app: Application,
+                    private val newsRepository: NewsRepository) : AndroidViewModel(app) {
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var breakingNewsPage = 1
     var breakingNewsResponse: NewsResponse? = null
-
-    val searchNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
-    var searchNewsPage = 1
-    var searchNewsResponse: NewsResponse? = null
 
     init {
         getBrakingNews("us")
@@ -43,14 +38,13 @@ class NewsViewModel @Inject constructor(
     }
 
     //Handles pagination logic as well
-    private fun handleBreakingNewsResponse(response: Response<NewsResponse>) : Resource<NewsResponse>{
-        if(response.isSuccessful){
+    private fun handleBreakingNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse> {
+        if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
                 breakingNewsPage++
-                if(breakingNewsResponse == null){
+                if (breakingNewsResponse == null) {
                     breakingNewsResponse = resultResponse
-                }
-                else{
+                } else {
                     val oldArticles = breakingNewsResponse?.articles
                     val newArticles = resultResponse.articles
                     oldArticles?.addAll(newArticles)
@@ -61,27 +55,6 @@ class NewsViewModel @Inject constructor(
         return Resource.Error(response.message())
     }
 
-    fun searchNews(searchQuery: String) = viewModelScope.launch {
-        safeSearchNewsCall(searchQuery)
-    }
-
-    private fun handleSearchNewsResponse(response: Response<NewsResponse>) : Resource<NewsResponse>{
-        if(response.isSuccessful){
-            response.body()?.let { resultResponse ->
-                searchNewsPage++
-                if(searchNewsResponse == null){
-                    searchNewsResponse = resultResponse
-                }
-                else{
-                    val oldArticles = searchNewsResponse?.articles
-                    val newArticles = resultResponse.articles
-                    oldArticles?.addAll(newArticles)
-                }
-                return Resource.Success(searchNewsResponse ?: resultResponse)
-            }
-        }
-        return Resource.Error(response.message())
-    }
 
     fun saveArticle(article: Article) = viewModelScope.launch {
         newsRepository.upsert(article)
@@ -93,40 +66,18 @@ class NewsViewModel @Inject constructor(
         newsRepository.deleteArticle(article)
     }
 
-    private suspend fun safeSearchNewsCall(searchQuery: String){
-//        searchNews.postValue(Resource.Loading())
-//        try {
-//            if(hasInterConnection()){
-//                val response = newsRepository.searchNews(searchQuery, searchNewsPage)
-//                searchNews.postValue(handleSearchNewsResponse(response))
-//            }
-//            else{
-//                searchNews.postValue(Resource.Error("No internet connection"))
-//            }
-//
-//        }
-//        catch (t: Throwable){
-//            when(t){
-//                is IOException -> searchNews.postValue(Resource.Error("Network Failure"))
-//                else -> searchNews.postValue(Resource.Error("Conversion Error"))
-//            }
-//        }
-    }
-
-    private suspend fun safeBreakingNewsCall(countryCode: String){
+    private suspend fun safeBreakingNewsCall(countryCode: String) {
         breakingNews.postValue(Resource.Loading())
         try {
-            if(hasInterConnection()){
+            if (hasInterConnection()) {
                 val response = newsRepository.getBreakingNews(countryCode, breakingNewsPage)
                 breakingNews.postValue(handleBreakingNewsResponse(response))
-            }
-            else{
+            } else {
                 breakingNews.postValue(Resource.Error("No internet connection"))
             }
 
-        }
-        catch (t: Throwable){
-            when(t){
+        } catch (t: Throwable) {
+            when (t) {
                 is IOException -> breakingNews.postValue(Resource.Error("Network Failure"))
                 else -> breakingNews.postValue(Resource.Error("Conversion Error"))
             }
@@ -137,10 +88,11 @@ class NewsViewModel @Inject constructor(
         val connectivityManager = getApplication<NewsApplication>().getSystemService(
             Context.CONNECTIVITY_SERVICE
         ) as ConnectivityManager
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val activeNetwork = connectivityManager.activeNetwork ?: return false
-            val capabilities = connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
-            return when{
+            val capabilities =
+                connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
+            return when {
                 capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
                 capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
                 capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
@@ -148,7 +100,7 @@ class NewsViewModel @Inject constructor(
             }
         } else {
             connectivityManager.activeNetworkInfo?.run {
-                return when(type){
+                return when (type) {
                     ConnectivityManager.TYPE_WIFI -> true
                     ConnectivityManager.TYPE_MOBILE -> true
                     ConnectivityManager.TYPE_ETHERNET -> true
