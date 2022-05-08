@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cleannews.NewsViewModel
 import com.example.cleannews.R
-import com.example.cleannews.adapter.NewsAdapter
+import com.example.core.adapter.NewsAdapter
 import com.example.cleannews.databinding.FragmentSavedNewsBinding
 import com.example.core.BaseFragment
 import com.google.android.material.snackbar.Snackbar

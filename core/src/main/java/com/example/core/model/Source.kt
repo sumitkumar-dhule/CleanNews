@@ -1,4 +1,4 @@
-package com.example.cleannews.model
+package com.example.core.model
 
 data class Source(
     val id: Any,

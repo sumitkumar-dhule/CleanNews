@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cleannews.NewsViewModel
 import com.example.cleannews.R
-import com.example.cleannews.adapter.NewsAdapter
+import com.example.core.adapter.NewsAdapter
 import com.example.cleannews.databinding.FragmentBreakingNewsBinding
 import com.example.core.BaseFragment
 import com.example.core.util.Constants.Companion.QUERY_PAGE_SIZE

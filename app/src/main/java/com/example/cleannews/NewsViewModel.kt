@@ -8,8 +8,8 @@ import android.os.Build
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.cleannews.model.Article
-import com.example.cleannews.model.NewsResponse
+import com.example.core.model.Article
+import com.example.core.model.NewsResponse
 import com.example.cleannews.repository.NewsRepository
 import com.example.core.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
