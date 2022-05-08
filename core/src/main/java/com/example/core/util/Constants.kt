@@ -1,4 +1,4 @@
-package com.example.cleannews.util
+package com.example.core.util
 
 class Constants {
     companion object {

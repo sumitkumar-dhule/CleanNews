@@ -1,4 +1,4 @@
-package com.example.cleannews.ui
+package com.example.core
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.example.cleannews.util
+package com.example.core.util
 
 sealed class Resource<T>(
     val data: T? = null,

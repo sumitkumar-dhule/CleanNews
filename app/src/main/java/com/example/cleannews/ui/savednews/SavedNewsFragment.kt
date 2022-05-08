@@ -12,7 +12,7 @@ import com.example.cleannews.NewsViewModel
 import com.example.cleannews.R
 import com.example.cleannews.adapter.NewsAdapter
 import com.example.cleannews.databinding.FragmentSavedNewsBinding
-import com.example.cleannews.ui.BaseFragment
+import com.example.core.BaseFragment
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_saved_news.*
