@@ -1,4 +1,4 @@
-package com.example.cleannews
+package com.example.cleannews.ui.breakingnews
 
 import android.app.Application
 import android.content.Context
@@ -8,7 +8,7 @@ import android.os.Build
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.core.model.Article
+import com.example.cleannews.NewsApplication
 import com.example.core.model.NewsResponse
 import com.example.core.repository.NewsRepository
 import com.example.core.util.Resource
@@ -18,10 +18,11 @@ import retrofit2.Response
 import java.io.IOException
 import javax.inject.Inject
 
+
 @HiltViewModel
-class NewsViewModel @Inject constructor(
-                    app: Application,
-                    private val newsRepository: NewsRepository
+class BreakingNewsViewModel @Inject constructor(
+    app: Application,
+    private val newsRepository: NewsRepository
 ) : AndroidViewModel(app) {
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
@@ -53,17 +54,6 @@ class NewsViewModel @Inject constructor(
             }
         }
         return Resource.Error(response.message())
-    }
-
-
-    fun saveArticle(article: Article) = viewModelScope.launch {
-        newsRepository.upsert(article)
-    }
-
-    fun getSaveNews() = newsRepository.getSavedNews()
-
-    fun deleteArticle(article: Article) = viewModelScope.launch {
-        newsRepository.deleteArticle(article)
     }
 
     private suspend fun safeBreakingNewsCall(countryCode: String) {
