@@ -28,7 +28,7 @@ class NewsViewModel @Inject constructor(
     var breakingNewsResponse: NewsResponse? = null
 
     init {
-        getBrakingNews("us")
+        getBrakingNews("in")
     }
 
     fun getBrakingNews(countryCode: String) = viewModelScope.launch {

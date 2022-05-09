@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import com.example.cleannews.api.NewsApi
 import com.example.cleannews.api.RetrofitInstance
-import com.example.cleannews.db.ArticleDao
-import com.example.cleannews.db.ArticleDatabase
+import com.example.core.db.ArticleDao
+import com.example.core.db.ArticleDatabase
 import com.example.cleannews.repository.NewsRepository
 import dagger.Module
 import dagger.Provides
