@@ -1,7 +1,6 @@
 package com.example.cleannews.ui.savednews
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.repository.NewsRepository
 import com.example.core.model.Article
@@ -12,10 +11,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SavedNewsViewModel @Inject constructor(
-    app: Application,
     private val newsRepository: NewsRepository
-) : AndroidViewModel(app) {
-
+) : ViewModel() {
 
     fun getSaveNews() = newsRepository.getSavedNews()
 
