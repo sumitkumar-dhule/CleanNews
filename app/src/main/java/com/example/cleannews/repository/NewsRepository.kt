@@ -2,7 +2,7 @@ package com.example.cleannews.repository
 
 import com.example.cleannews.api.NewsApi
 import com.example.cleannews.db.ArticleDao
-import com.example.cleannews.model.Article
+import com.example.core.model.Article
 import javax.inject.Inject
 
 class NewsRepository @Inject constructor(

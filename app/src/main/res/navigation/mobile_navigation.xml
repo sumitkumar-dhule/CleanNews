@@ -29,6 +29,6 @@
         android:label="ArticleNewsFragment">
         <argument
             android:name="article"
-            app:argType="com.example.cleannews.model.Article" />
+            app:argType="com.example.core.model.Article" />
     </fragment>
 </navigation>

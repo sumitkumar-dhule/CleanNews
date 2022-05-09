@@ -1,7 +1,7 @@
 package com.example.cleannews.api
 
 import com.example.cleannews.BuildConfig
-import com.example.cleannews.util.Constants.Companion.BASE_URL
+import com.example.core.util.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

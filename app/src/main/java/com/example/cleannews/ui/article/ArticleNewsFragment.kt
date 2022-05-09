@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.cleannews.NewsViewModel
 import com.example.cleannews.databinding.FragmentArticleBinding
-import com.example.cleannews.ui.BaseFragment
+import com.example.core.BaseFragment
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_article.*
