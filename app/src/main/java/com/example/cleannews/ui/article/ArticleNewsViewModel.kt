@@ -1,26 +1,21 @@
-package com.example.cleannews.ui.savednews
+package com.example.cleannews.ui.article
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.core.repository.NewsRepository
 import com.example.core.model.Article
+import com.example.core.repository.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
 @HiltViewModel
-class SavedNewsViewModel @Inject constructor(
+class ArticleNewsViewModel @Inject constructor(
     private val newsRepository: NewsRepository
 ) : ViewModel() {
-
-    fun getSaveNews() = newsRepository.getSavedNews()
-
-    fun deleteArticle(article: Article) = viewModelScope.launch {
-        newsRepository.deleteArticle(article)
-    }
 
     fun saveArticle(article: Article) = viewModelScope.launch {
         newsRepository.upsert(article)
     }
+
 }

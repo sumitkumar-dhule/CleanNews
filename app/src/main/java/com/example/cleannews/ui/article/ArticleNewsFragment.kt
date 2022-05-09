@@ -5,7 +5,6 @@ import android.view.View
 import android.webkit.WebViewClient
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.example.cleannews.NewsViewModel
 import com.example.cleannews.databinding.FragmentArticleBinding
 import com.example.core.BaseFragment
 import com.google.android.material.snackbar.Snackbar
@@ -17,7 +16,7 @@ class ArticleNewsFragment : BaseFragment<FragmentArticleBinding>(
     FragmentArticleBinding::inflate
 ) {
 
-    private val viewModel by viewModels<NewsViewModel>()
+    private val viewModel by viewModels<ArticleNewsViewModel>()
     val args: ArticleNewsFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
