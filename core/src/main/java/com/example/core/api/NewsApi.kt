@@ -1,4 +1,4 @@
-package com.example.cleannews.api
+package com.example.core.api
 
 import com.example.core.model.NewsResponse
 import com.example.core.util.Constants.Companion.API_KEY
