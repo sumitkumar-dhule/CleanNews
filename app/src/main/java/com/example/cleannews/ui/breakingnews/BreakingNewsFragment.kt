@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cleannews.NewsViewModel
 import com.example.cleannews.R
 import com.example.core.adapter.NewsAdapter
 import com.example.cleannews.databinding.FragmentBreakingNewsBinding
@@ -24,7 +23,7 @@ class BreakingNewsFragment : BaseFragment<FragmentBreakingNewsBinding>(
     FragmentBreakingNewsBinding::inflate
 ) {
 
-    private val viewModel by viewModels<NewsViewModel>()
+    private val viewModel by viewModels<BreakingNewsViewModel>()
     lateinit var newsAdapter: NewsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
