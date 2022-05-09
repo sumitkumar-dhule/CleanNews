@@ -3,7 +3,7 @@ package com.example.cleannews.ui.savednews
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.cleannews.repository.NewsRepository
+import com.example.core.repository.NewsRepository
 import com.example.core.model.Article
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

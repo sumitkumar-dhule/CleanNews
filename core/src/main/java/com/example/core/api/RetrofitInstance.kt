@@ -1,6 +1,6 @@
-package com.example.cleannews.api
+package com.example.core.api
 
-import com.example.cleannews.BuildConfig
+import com.example.core.BuildConfig
 import com.example.core.util.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

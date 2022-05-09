@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.core.model.Article
 import com.example.core.model.NewsResponse
-import com.example.cleannews.repository.NewsRepository
+import com.example.core.repository.NewsRepository
 import com.example.core.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -21,7 +21,8 @@ import javax.inject.Inject
 @HiltViewModel
 class NewsViewModel @Inject constructor(
                     app: Application,
-                    private val newsRepository: NewsRepository) : AndroidViewModel(app) {
+                    private val newsRepository: NewsRepository
+) : AndroidViewModel(app) {
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var breakingNewsPage = 1
