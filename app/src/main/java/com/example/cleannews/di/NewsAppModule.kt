@@ -2,11 +2,11 @@ package com.example.cleannews.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.cleannews.api.NewsApi
-import com.example.cleannews.api.RetrofitInstance
-import com.example.cleannews.db.ArticleDao
-import com.example.cleannews.db.ArticleDatabase
-import com.example.cleannews.repository.NewsRepository
+import com.example.core.api.NewsApi
+import com.example.core.api.RetrofitInstance
+import com.example.core.db.ArticleDao
+import com.example.core.db.ArticleDatabase
+import com.example.core.repository.NewsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

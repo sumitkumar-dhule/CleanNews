@@ -1,4 +1,4 @@
-package com.example.cleannews.db
+package com.example.core.db
 
 import android.content.Context
 import androidx.room.Database
