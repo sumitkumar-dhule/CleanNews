@@ -7,12 +7,11 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.cleannews.model.Article
-import com.example.cleannews.model.NewsResponse
+import com.example.core.model.Article
+import com.example.core.model.NewsResponse
 import com.example.cleannews.repository.NewsRepository
-import com.example.cleannews.util.Resource
+import com.example.core.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
