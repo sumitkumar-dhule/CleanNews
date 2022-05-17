@@ -1,17 +1,15 @@
-package com.example.cleannews.ui.savednews
+package com.example.savednews
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cleannews.R
 import com.example.core.adapter.NewsAdapter
-import com.example.cleannews.databinding.FragmentSavedNewsBinding
 import com.example.core.BaseFragment
+import com.example.savednews.databinding.FragmentSavedNewsBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_saved_news.*
@@ -34,10 +32,10 @@ class SavedNewsFragment : BaseFragment<FragmentSavedNewsBinding>(
             val bundle = Bundle().apply {
                 putSerializable("article", it)
             }
-            findNavController().navigate(
-                R.id.action_savedNewsFragment_to_articleNewsFragment,
-                bundle
-            )
+//            findNavController().navigate(
+//                R.id.action_savedNewsFragment_to_articleNewsFragment,
+//                bundle
+//            )
         }
 
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(

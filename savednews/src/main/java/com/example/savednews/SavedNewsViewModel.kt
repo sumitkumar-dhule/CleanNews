@@ -1,4 +1,4 @@
-package com.example.cleannews.ui.savednews
+package com.example.savednews
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

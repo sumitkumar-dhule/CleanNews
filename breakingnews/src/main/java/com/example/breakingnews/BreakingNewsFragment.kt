@@ -1,4 +1,4 @@
-package com.example.cleannews.ui.breakingnews
+package com.example.breakingnews
 
 import android.os.Bundle
 import android.util.Log
@@ -6,12 +6,10 @@ import android.view.View
 import android.widget.AbsListView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cleannews.R
+import com.example.breakingnews.databinding.FragmentBreakingNewsBinding
 import com.example.core.adapter.NewsAdapter
-import com.example.cleannews.databinding.FragmentBreakingNewsBinding
 import com.example.core.BaseFragment
 import com.example.core.util.Constants.Companion.QUERY_PAGE_SIZE
 import com.example.core.util.Resource
@@ -32,16 +30,16 @@ class BreakingNewsFragment : BaseFragment<FragmentBreakingNewsBinding>(
         setUpRecyclerView()
 
 
-        newsAdapter.setOnItemClickListener {
-            val bundle = Bundle().apply {
-                //Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
-                putSerializable("article", it)
-            }
-            findNavController().navigate(
-                R.id.action_breakingNewsFragment_to_articleNewsFragment,
-                bundle
-            )
-        }
+//        newsAdapter.setOnItemClickListener {
+//            val bundle = Bundle().apply {
+//                //Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+//                putSerializable("article", it)
+//            }
+//            findNavController().navigate(
+//                R.id.action_breakingNewsFragment_to_articleNewsFragment,
+//                bundle
+//            )
+//        }
 
         viewModel.breakingNews.observe(viewLifecycleOwner) { response ->
             when (response) {
