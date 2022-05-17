@@ -1,4 +1,4 @@
-package com.example.cleannews.ui.breakingnews
+package com.example.breakingnews
 
 import android.os.Bundle
 import android.util.Log
@@ -9,9 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cleannews.R
+import com.example.breakingnews.databinding.FragmentBreakingNewsBinding
 import com.example.core.adapter.NewsAdapter
-import com.example.cleannews.databinding.FragmentBreakingNewsBinding
 import com.example.core.BaseFragment
 import com.example.core.util.Constants.Companion.QUERY_PAGE_SIZE
 import com.example.core.util.Resource

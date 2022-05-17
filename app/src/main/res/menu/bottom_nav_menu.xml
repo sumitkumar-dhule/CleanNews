@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/breakingNewsFragment"
+        android:id="@+id/breakingnews_nav_graph"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_breaking_news" />
 
     <item
-        android:id="@+id/savedNewsFragment"
+        android:id="@+id/savednews_nav_graph"
         android:icon="@drawable/ic_favorite"
         android:title="@string/title_saved_news" />
 

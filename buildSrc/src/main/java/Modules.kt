@@ -5,4 +5,6 @@ object Modules {
 
     const val breakingNews = ":breakingnews"
     const val savedNews = ":savednews"
+
+    const val common = ":common"
 }
