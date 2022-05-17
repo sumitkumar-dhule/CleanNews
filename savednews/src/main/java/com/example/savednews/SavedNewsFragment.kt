@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,10 +33,10 @@ class SavedNewsFragment : BaseFragment<FragmentSavedNewsBinding>(
             val bundle = Bundle().apply {
                 putSerializable("article", it)
             }
-//            findNavController().navigate(
-//                R.id.action_savedNewsFragment_to_articleNewsFragment,
-//                bundle
-//            )
+            findNavController().navigate(
+                R.id.action_savedNewsFragment_to_articleNewsFragment,
+                bundle
+            )
         }
 
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(

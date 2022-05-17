@@ -4,9 +4,19 @@
     android:id="@+id/breakingnews_nav_graph"
     app:startDestination="@id/breakingNewsFragment">
 
-
+    <include app:graph="@navigation/common_navigation" />
     <fragment
         android:id="@+id/breakingNewsFragment"
         android:name="com.example.breakingnews.BreakingNewsFragment"
-        android:label="BreakingNewsFragment" />
+        android:label="BreakingNewsFragment" >
+        <action
+            android:id="@+id/action_breakingNewsFragment_to_articleNewsFragment"
+            app:destination="@id/articleNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleNewsFragment"
+        android:name="com.example.common.ArticleNewsFragment"
+        android:label="ArticleNewsFragment" />
+
+
 </navigation>

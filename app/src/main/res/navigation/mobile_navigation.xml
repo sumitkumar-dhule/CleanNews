@@ -6,13 +6,14 @@
 
     <include app:graph="@navigation/breakingnews_navigation" />
     <include app:graph="@navigation/savednews_navigation" />
+    <include app:graph="@navigation/common_navigation" />
 
-    <fragment
-        android:id="@+id/articleNewsFragment"
-        android:name="com.example.cleannews.ui.article.ArticleNewsFragment"
-        android:label="ArticleNewsFragment">
-        <argument
-            android:name="article"
-            app:argType="com.example.core.model.Article" />
-    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/articleNewsFragment"-->
+<!--        android:name="com.example.common.ArticleNewsFragment"-->
+<!--        android:label="ArticleNewsFragment">-->
+<!--        <argument-->
+<!--            android:name="article"-->
+<!--            app:argType="com.example.core.model.Article" />-->
+<!--    </fragment>-->
 </navigation>

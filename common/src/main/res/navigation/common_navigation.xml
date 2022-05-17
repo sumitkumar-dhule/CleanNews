@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/common_navigation"
+    app:startDestination="@id/articleNewsFragment">
+
+    <fragment
+        android:id="@+id/articleNewsFragment"
+        android:name="com.example.common.ArticleNewsFragment"
+        android:label="ArticleNewsFragment">
+        <argument
+            android:name="article"
+            app:argType="com.example.core.model.Article" />
+    </fragment>
+
+</navigation>

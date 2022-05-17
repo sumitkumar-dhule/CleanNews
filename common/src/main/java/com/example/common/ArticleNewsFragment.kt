@@ -1,12 +1,11 @@
-package com.example.cleannews.ui.article
+package com.example.common
 
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebViewClient
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.example.cleannews.R
-import com.example.cleannews.databinding.FragmentArticleBinding
+import com.example.common.databinding.FragmentArticleBinding
 import com.example.core.BaseFragment
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint

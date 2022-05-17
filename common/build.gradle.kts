@@ -12,8 +12,4 @@ dependencies {
     // Navigation Components
     "implementation" ("androidx.navigation:navigation-fragment-ktx:2.2.1")
     "implementation" ("androidx.navigation:navigation-ui-ktx:2.2.1")
-
-    "implementation"(project(Modules.common))
-
-
 }

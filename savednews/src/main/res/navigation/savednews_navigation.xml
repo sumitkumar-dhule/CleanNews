@@ -4,8 +4,18 @@
     android:id="@+id/savednews_nav_graph"
     app:startDestination="@id/savedNewsFragment">
 
+    <include app:graph="@navigation/common_navigation" />
     <fragment
         android:id="@+id/savedNewsFragment"
         android:name="com.example.savednews.SavedNewsFragment"
-        android:label="SavedNewsFragment" />
+        android:label="SavedNewsFragment" >
+        <action
+            android:id="@+id/action_savedNewsFragment_to_articleNewsFragment"
+            app:destination="@id/articleNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleNewsFragment"
+        android:name="com.example.common.ArticleNewsFragment"
+        android:label="ArticleNewsFragment" />
+
 </navigation>
