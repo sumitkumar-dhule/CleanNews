@@ -90,4 +90,5 @@ dependencies {
     implementation(project(Modules.core))
     implementation(project(Modules.breakingNews))
     implementation(project(Modules.savedNews))
+    implementation(project(Modules.common))
 }

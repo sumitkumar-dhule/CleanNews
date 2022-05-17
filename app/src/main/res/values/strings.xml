@@ -2,7 +2,4 @@
     <string name="app_name">CleanNews</string>
     <string name="title_breaking_news">Breaking News</string>
     <string name="title_saved_news">Saved News</string>
-    <string name="article_delete_message">Successfully deleted article</string>
-    <string name="action_undo">Undo</string>
-    <string name="article_save_success_message">Article saved successfully</string>
 </resources>
