@@ -16,7 +16,6 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_saved_news.*
 
-
 @AndroidEntryPoint
 class SavedNewsFragment : BaseFragment<FragmentSavedNewsBinding>(
     FragmentSavedNewsBinding::inflate
@@ -57,8 +56,8 @@ class SavedNewsFragment : BaseFragment<FragmentSavedNewsBinding>(
                 val position = viewHolder.adapterPosition
                 val article = newsAdapter.differ.currentList[position]
                 viewModel.deleteArticle(article)
-                Snackbar.make(view, "Successfully deleted article", Snackbar.LENGTH_LONG).apply {
-                    setAction("Undo") {
+                Snackbar.make(view, getString(R.string.article_delete_message), Snackbar.LENGTH_LONG).apply {
+                    setAction(getString(R.string.action_undo)) {
                         viewModel.saveArticle(article)
                     }
                     show()

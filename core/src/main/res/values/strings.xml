@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exp_binding_null">Binding cannot be null</string>
+</resources>
