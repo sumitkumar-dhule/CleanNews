@@ -61,6 +61,15 @@ dependencies {
     implementation AndroidX.appCompat
     implementation Google.material
 
+
+    // Coroutine Lifecycle Scopes
+    implementation AndroidX.lifecycleViewmodel
+    implementation AndroidX.lifecycleRuntime
+
+    // Navigation Components
+    implementation AndroidX.navigationFragmentKtx
+    implementation AndroidX.navigationUiKtx
+
     testImplementation Testing.junit
     androidTestImplementation Testing.junitExt
     androidTestImplementation Testing.espresso
