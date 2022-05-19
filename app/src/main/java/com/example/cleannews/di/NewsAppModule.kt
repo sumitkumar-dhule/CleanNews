@@ -27,7 +27,7 @@ object NewsAppModule {
     }
 
     @Provides
-    @Singleton //Singleton as it provides only single instance of database object
+    @Singleton
     fun providesDatabase(@ApplicationContext context: Context): ArticleDatabase =
         Room.databaseBuilder(context, ArticleDatabase::class.java, "article_db")
             .build()
