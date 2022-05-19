@@ -31,10 +31,8 @@ class BreakingNewsFragment : BaseFragment<FragmentBreakingNewsBinding>(
 
         setUpRecyclerView()
 
-
         newsAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
-                //Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
                 putSerializable("article", it)
             }
             findNavController().navigate(
@@ -59,8 +57,8 @@ class BreakingNewsFragment : BaseFragment<FragmentBreakingNewsBinding>(
                 is Resource.Error -> {
                     hideProgressBar()
                     response.data?.let { message ->
-                        Log.e("tag", "An error occurred")
-                        Toast.makeText(activity, "An error occurred: $message", Toast.LENGTH_SHORT).show()
+                        Log.d("BreakingNewsFragment", "An error occurred :$message")
+                        Toast.makeText(activity, getString(R.string.response_error_msg), Toast.LENGTH_SHORT).show()
                     }
                 }
                 is Resource.Loading -> {
