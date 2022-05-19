@@ -23,18 +23,17 @@ class BreakingNewsFragment : BaseFragment<FragmentBreakingNewsBinding>(
     FragmentBreakingNewsBinding::inflate
 ) {
 
+    private val TAG = this.javaClass.simpleName
     private val viewModel by viewModels<BreakingNewsViewModel>()
-    lateinit var newsAdapter: NewsAdapter
+    private lateinit var newsAdapter: NewsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setUpRecyclerView()
 
-
         newsAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
-                //Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
                 putSerializable("article", it)
             }
             findNavController().navigate(
@@ -59,8 +58,8 @@ class BreakingNewsFragment : BaseFragment<FragmentBreakingNewsBinding>(
                 is Resource.Error -> {
                     hideProgressBar()
                     response.data?.let { message ->
-                        Log.e("tag", "An error occurred")
-                        Toast.makeText(activity, "An error occurred: $message", Toast.LENGTH_SHORT).show()
+                        Log.d(TAG, "An error occurred :$message")
+                        Toast.makeText(activity, getString(R.string.response_error_msg), Toast.LENGTH_SHORT).show()
                     }
                 }
                 is Resource.Loading -> {

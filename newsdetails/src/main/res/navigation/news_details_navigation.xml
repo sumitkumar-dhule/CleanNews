@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/common_navigation"
+    android:id="@+id/news_details_navigation"
     app:startDestination="@id/articleNewsFragment">
 
     <fragment
         android:id="@+id/articleNewsFragment"
-        android:name="com.example.common.ArticleNewsFragment"
+        android:name="com.example.newsdetails.ArticleNewsFragment"
         android:label="ArticleNewsFragment">
         <argument
             android:name="article"

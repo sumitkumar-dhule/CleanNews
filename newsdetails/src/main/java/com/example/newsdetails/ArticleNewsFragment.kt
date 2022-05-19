@@ -1,11 +1,11 @@
-package com.example.common
+package com.example.newsdetails
 
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebViewClient
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.example.common.databinding.FragmentArticleBinding
+import com.example.newsdetails.databinding.FragmentArticleBinding
 import com.example.core.BaseFragment
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint

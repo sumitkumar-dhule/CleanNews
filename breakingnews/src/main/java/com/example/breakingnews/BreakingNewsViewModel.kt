@@ -38,7 +38,7 @@ class BreakingNewsViewModel @Inject constructor(
 
     }
 
-    //Handles pagination logic as well
+    //Handles pagination logic
     private fun handleBreakingNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
@@ -99,6 +99,5 @@ class BreakingNewsViewModel @Inject constructor(
             }
         }
         return false
-
     }
 }

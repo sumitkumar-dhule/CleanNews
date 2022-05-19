@@ -6,7 +6,7 @@
 
     <include app:graph="@navigation/breakingnews_navigation" />
     <include app:graph="@navigation/savednews_navigation" />
-    <include app:graph="@navigation/common_navigation" />
+    <include app:graph="@navigation/news_details_navigation" />
 
 <!--    <fragment-->
 <!--        android:id="@+id/articleNewsFragment"-->
