@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.breakingnews.databinding.FragmentBreakingNewsBinding
 import com.example.core.adapter.NewsAdapter
 import com.example.core.BaseFragment
+import com.example.core.util.Constants
 import com.example.core.util.Constants.Companion.QUERY_PAGE_SIZE
 import com.example.core.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
@@ -107,7 +108,7 @@ class BreakingNewsFragment : BaseFragment<FragmentBreakingNewsBinding>(
             val shouldPaginate = isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning &&
                     isTotalMoreThanVisible && isScrolling
             if(shouldPaginate){
-                viewModel.getBrakingNews("us")
+                viewModel.getBrakingNews(Constants.COUNTRY_CODE)
                 isScrolling = false
             }
 
