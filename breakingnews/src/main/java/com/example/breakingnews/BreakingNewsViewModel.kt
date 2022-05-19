@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.core.model.NewsResponse
 import com.example.core.repository.NewsRepository
+import com.example.core.util.Constants
 import com.example.core.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -29,7 +30,7 @@ class BreakingNewsViewModel @Inject constructor(
     var breakingNewsResponse: NewsResponse? = null
 
     init {
-        getBrakingNews("in")
+        getBrakingNews(Constants.COUNTRY_CODE)
     }
 
     fun getBrakingNews(countryCode: String) = viewModelScope.launch {

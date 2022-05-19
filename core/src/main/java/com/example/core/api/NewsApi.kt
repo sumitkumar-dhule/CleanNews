@@ -1,6 +1,7 @@
 package com.example.core.api
 
 import com.example.core.model.NewsResponse
+import com.example.core.util.Constants
 import com.example.core.util.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
@@ -11,7 +12,7 @@ interface NewsApi {
     @GET("v2/top-headlines")
     suspend fun getBreakingNews(
         @Query("country")
-        countryCode: String = "in",
+        countryCode: String = Constants.COUNTRY_CODE,
         @Query("page")
         pageNumber: Int = 1,
         @Query("apiKey")
