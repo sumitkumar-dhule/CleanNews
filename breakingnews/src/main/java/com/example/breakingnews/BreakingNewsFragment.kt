@@ -2,16 +2,18 @@ package com.example.breakingnews
 
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.breakingnews.databinding.FragmentBreakingNewsBinding
 import com.example.core.adapter.NewsAdapter
-import com.example.core.BaseFragment
 import com.example.core.util.Constants
 import com.example.core.util.Constants.Companion.QUERY_PAGE_SIZE
 import com.example.core.util.Resource
@@ -19,13 +21,25 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_breaking_news.*
 
 @AndroidEntryPoint
-class BreakingNewsFragment : BaseFragment<FragmentBreakingNewsBinding>(
-    FragmentBreakingNewsBinding::inflate
-) {
+class BreakingNewsFragment : Fragment() {
 
     private val TAG = this.javaClass.simpleName
     private val viewModel by viewModels<BreakingNewsViewModel>()
     private lateinit var newsAdapter: NewsAdapter
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        val binding = FragmentBreakingNewsBinding.inflate(inflater)
+
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

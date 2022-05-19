@@ -1,7 +1,10 @@
 package com.example.savednews
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -9,19 +12,29 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.adapter.NewsAdapter
-import com.example.core.BaseFragment
 import com.example.savednews.databinding.FragmentSavedNewsBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_saved_news.*
 
 @AndroidEntryPoint
-class SavedNewsFragment : BaseFragment<FragmentSavedNewsBinding>(
-    FragmentSavedNewsBinding::inflate
-) {
+class SavedNewsFragment : Fragment(){
 
     private val viewModel by viewModels<SavedNewsViewModel>()
     lateinit var newsAdapter: NewsAdapter
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val binding = FragmentSavedNewsBinding.inflate(inflater)
+
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
