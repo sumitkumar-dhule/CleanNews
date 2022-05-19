@@ -23,8 +23,9 @@ class BreakingNewsFragment : BaseFragment<FragmentBreakingNewsBinding>(
     FragmentBreakingNewsBinding::inflate
 ) {
 
+    private val TAG = this.javaClass.simpleName
     private val viewModel by viewModels<BreakingNewsViewModel>()
-    lateinit var newsAdapter: NewsAdapter
+    private lateinit var newsAdapter: NewsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -57,7 +58,7 @@ class BreakingNewsFragment : BaseFragment<FragmentBreakingNewsBinding>(
                 is Resource.Error -> {
                     hideProgressBar()
                     response.data?.let { message ->
-                        Log.d("BreakingNewsFragment", "An error occurred :$message")
+                        Log.d(TAG, "An error occurred :$message")
                         Toast.makeText(activity, getString(R.string.response_error_msg), Toast.LENGTH_SHORT).show()
                     }
                 }
