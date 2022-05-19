@@ -7,6 +7,8 @@
 
 ## Technical Specification
 This is a multi-module project with modularization by feature.
+User gets News feeds from remote API "https://newsapi.org" and can cache it locally using ROOM.
+Details of News article can be viewed in WebView.
 
 Architecture: MVVM
 
