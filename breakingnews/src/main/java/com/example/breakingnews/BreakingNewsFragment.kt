@@ -58,7 +58,7 @@ class BreakingNewsFragment : BaseFragment<FragmentBreakingNewsBinding>(
                     hideProgressBar()
                     response.data?.let { message ->
                         Log.d("BreakingNewsFragment", "An error occurred :$message")
-                        Toast.makeText(activity, getString(R.string.response_error), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, getString(R.string.response_error_msg), Toast.LENGTH_SHORT).show()
                     }
                 }
                 is Resource.Loading -> {

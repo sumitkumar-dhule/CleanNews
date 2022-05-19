@@ -3,5 +3,5 @@ object Modules {
     const val core = ":core"
     const val breakingNews = ":breakingnews"
     const val savedNews = ":savednews"
-    const val common = ":common"
+    const val newsDetails = ":newsdetails"
 }

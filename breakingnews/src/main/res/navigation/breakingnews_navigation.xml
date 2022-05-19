@@ -4,7 +4,7 @@
     android:id="@+id/breakingnews_nav_graph"
     app:startDestination="@id/breakingNewsFragment">
 
-    <include app:graph="@navigation/common_navigation" />
+    <include app:graph="@navigation/news_details_navigation" />
     <fragment
         android:id="@+id/breakingNewsFragment"
         android:name="com.example.breakingnews.BreakingNewsFragment"
