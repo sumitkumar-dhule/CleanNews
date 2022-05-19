@@ -1,4 +1,4 @@
-package com.example.cleannews.di
+package com.example.core.di
 
 import android.content.Context
 import androidx.room.Room
@@ -16,7 +16,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NewsAppModule {
+object CoreModule {
 
     @Singleton
     @Provides
@@ -27,15 +27,14 @@ object NewsAppModule {
     }
 
     @Provides
-    @Singleton
-    fun providesDatabase(@ApplicationContext context: Context): ArticleDatabase =
-        Room.databaseBuilder(context, ArticleDatabase::class.java, "article_db")
-            .build()
-
-    @Provides
     fun providesUserDao(articleDatabase: ArticleDatabase): ArticleDao =
         articleDatabase.getArticleDao()
 
+
+    @Provides
+    @Singleton
+    fun providesDatabase(@ApplicationContext context: Context): ArticleDatabase =
+        Room.databaseBuilder(context, ArticleDatabase::class.java, "article_db").build()
 
     @Provides
     fun providesUserRepository(api: NewsApi, articleDao: ArticleDao): NewsRepository =
