@@ -35,25 +35,29 @@ class BreakingNewsViewModel @Inject constructor(
 
     fun getBrakingNews(countryCode: String) = viewModelScope.launch {
         safeBreakingNewsCall(countryCode)
-
     }
 
-    //Handles pagination logic
     private fun handleBreakingNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
-                breakingNewsPage++
-                if (breakingNewsResponse == null) {
-                    breakingNewsResponse = resultResponse
-                } else {
-                    val oldArticles = breakingNewsResponse?.articles
-                    val newArticles = resultResponse.articles
-                    oldArticles?.addAll(newArticles)
-                }
+                handlePagination(resultResponse)
                 return Resource.Success(breakingNewsResponse ?: resultResponse)
             }
         }
         return Resource.Error(response.message())
+    }
+
+    private fun handlePagination(resultResponse: NewsResponse) {
+        breakingNewsPage++
+
+        if (breakingNewsResponse == null) {
+            breakingNewsResponse = resultResponse
+        } else {
+            val oldArticles = breakingNewsResponse?.articles
+            val newArticles = resultResponse.articles
+            oldArticles?.addAll(newArticles)
+        }
+
     }
 
     private suspend fun safeBreakingNewsCall(countryCode: String) {
