@@ -1,19 +1,14 @@
 package com.example.core.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.core.model.Article
-import com.example.core.R
-import kotlinx.android.synthetic.main.item_article_preview.view.*
+import com.example.core.databinding.ItemArticlePreviewBinding
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
-
-    inner class ArticleViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
     private val differCallback = object : DiffUtil.ItemCallback<Article>() {
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
@@ -28,13 +23,9 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     val differ = AsyncListDiffer(this, differCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
-        return ArticleViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.item_article_preview,
-                parent,
-                false
-            )
-        )
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = ItemArticlePreviewBinding.inflate(layoutInflater, parent, false)
+        return ArticleViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -45,21 +36,26 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = differ.currentList[position]
-        holder.itemView.apply {
-            Glide.with(this).load(article.urlToImage).into(ivArticleImage)
-            tvSource.text = article.source?.name
-            tvTitle.text = article.title
-            tvDescription.text = article.description
-            tvPublishedAt.text = article.publishedAt
+        holder.bindArticle(article)
 
+        holder.itemView.apply {
             setOnClickListener {
                 onItemClickListener?.let { it(article) }
             }
         }
+
     }
 
     fun setOnItemClickListener(listener: (Article) -> Unit) {
         onItemClickListener = listener
+    }
+
+    class ArticleViewHolder(private val binding: ItemArticlePreviewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bindArticle(item: Article) {
+            binding.article = item
+            binding.executePendingBindings()
+        }
     }
 
 }
