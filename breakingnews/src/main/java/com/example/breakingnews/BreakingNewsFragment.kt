@@ -31,7 +31,7 @@ class BreakingNewsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         val binding = FragmentBreakingNewsBinding.inflate(inflater)
 
@@ -94,11 +94,11 @@ class BreakingNewsFragment : Fragment() {
     }
 
     //Pagination Logic
-    var isLoading = false
-    var isLastPage = false
-    var isScrolling = false
+    private var isLoading = false
+    private var isLastPage = false
+    private var isScrolling = false
 
-    val scrollListener = object : RecyclerView.OnScrollListener() {
+    private val scrollListener = object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
             if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
