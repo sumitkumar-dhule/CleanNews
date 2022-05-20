@@ -8,7 +8,6 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.example.core.BaseFragment
 import com.example.newsdetails.databinding.FragmentArticleBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,7 +18,6 @@ class ArticleNewsFragment : Fragment() {
 
     private val viewModel by viewModels<ArticleNewsViewModel>()
     val args: ArticleNewsFragmentArgs by navArgs()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
