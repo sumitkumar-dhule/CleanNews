@@ -5,7 +5,7 @@ import com.example.core.db.ArticleDao
 import com.example.core.model.Article
 import javax.inject.Inject
 
-class NewsRepository @Inject constructor(
+open class NewsRepository @Inject constructor(
     private val api: NewsApi,
     private val db: ArticleDao
 ) {

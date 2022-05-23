@@ -71,7 +71,12 @@ dependencies {
     implementation AndroidX.navigationUiKtx
 
     testImplementation Testing.junit
+    testImplementation Testing.mockitokotlin
+    testImplementation Testing.mockitoCore
+    testImplementation Testing.coroutinesTest
+
     androidTestImplementation Testing.junitExt
     androidTestImplementation Testing.espresso
+    androidTestImplementation Testing.mockitoCore
 
 }
