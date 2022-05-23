@@ -2,6 +2,8 @@ package com.example.breakingnews
 
 
 import android.app.Application
+import android.content.Context
+import android.net.ConnectivityManager
 import com.example.core.repository.NewsRepository
 import com.example.core.util.Constants
 import kotlinx.coroutines.Dispatchers
@@ -14,6 +16,22 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
+import  android.net.Network
+import android.net.NetworkCapabilities
+import android.net.NetworkInfo
+import com.example.core.model.Article
+import com.example.core.model.NewsResponse
+import com.example.core.util.Resource
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import org.junit.Assert
+import org.junit.Assert.assertEquals
+import org.mockito.kotlin.any
+import org.mockito.kotlin.never
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
+import retrofit2.Response
+
 
 @RunWith(MockitoJUnitRunner::class)
 class BreakingNewsViewModelTest {
@@ -25,6 +43,28 @@ class BreakingNewsViewModelTest {
 
     @Mock
     lateinit var application: Application
+
+    @Mock
+    lateinit var connectivityManager: ConnectivityManager
+
+    @Mock
+    lateinit var network: Network
+
+    @Mock
+    lateinit var networkInfo: NetworkInfo
+
+    @Mock
+    lateinit var networkCapabilities: NetworkCapabilities
+
+    @Mock
+    lateinit var response: Response<NewsResponse>
+
+    @Mock
+    lateinit var newsResponse: NewsResponse
+
+    @Mock
+    lateinit var article: Article
+
 
     @Before
     fun setUp() {
@@ -40,7 +80,43 @@ class BreakingNewsViewModelTest {
     }
 
     @Test
-    fun getBrakingNews() {
-        breakingNewsViewModel.getBrakingNews(Constants.COUNTRY_CODE)
+    fun getBrakingNewsWithWifiConnectivity() {
+
+        runBlocking {
+            whenever(application.getSystemService(Context.CONNECTIVITY_SERVICE)).thenReturn(
+                connectivityManager
+            )
+            whenever(newsRepository.getBreakingNews(Constants.COUNTRY_CODE, 1)).thenReturn(response)
+            whenever(response.isSuccessful).thenReturn(true)
+            whenever(response.body()).thenReturn(newsResponse)
+
+            whenever(connectivityManager.activeNetworkInfo).thenReturn(networkInfo)
+            whenever(networkInfo.type).thenReturn(ConnectivityManager.TYPE_WIFI)
+
+            breakingNewsViewModel.getBrakingNews(Constants.COUNTRY_CODE)
+
+            launch(Dispatchers.Main) {
+                verify(newsRepository).getBreakingNews(Constants.COUNTRY_CODE, 1)
+            }
+        }
     }
+
+    @Test
+    fun getBrakingNewsWithoutConnectivity() {
+
+        runBlocking {
+            whenever(application.getSystemService(Context.CONNECTIVITY_SERVICE)).thenReturn(
+                connectivityManager
+            )
+            whenever(connectivityManager.activeNetworkInfo).thenReturn(networkInfo)
+            whenever(networkInfo.type).thenReturn(ConnectivityManager.TYPE_VPN)
+
+            breakingNewsViewModel.getBrakingNews(Constants.COUNTRY_CODE)
+
+            launch(Dispatchers.Main) {
+                verify(newsRepository, never()).getBreakingNews(Constants.COUNTRY_CODE, 1)
+            }
+        }
+    }
+
 }
