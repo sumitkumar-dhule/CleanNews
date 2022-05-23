@@ -16,17 +16,10 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
-import  android.net.Network
-import android.net.NetworkCapabilities
 import android.net.NetworkInfo
-import com.example.core.model.Article
 import com.example.core.model.NewsResponse
-import com.example.core.util.Resource
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert
-import org.junit.Assert.assertEquals
-import org.mockito.kotlin.any
 import org.mockito.kotlin.never
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
@@ -48,22 +41,13 @@ class BreakingNewsViewModelTest {
     lateinit var connectivityManager: ConnectivityManager
 
     @Mock
-    lateinit var network: Network
-
-    @Mock
     lateinit var networkInfo: NetworkInfo
-
-    @Mock
-    lateinit var networkCapabilities: NetworkCapabilities
 
     @Mock
     lateinit var response: Response<NewsResponse>
 
     @Mock
     lateinit var newsResponse: NewsResponse
-
-    @Mock
-    lateinit var article: Article
 
 
     @Before
