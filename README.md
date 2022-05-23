@@ -7,9 +7,9 @@
 
 ## Technical Specification
 This is a multi-module project with modularization by feature.
-User gets News feeds from remote API "https://newsapi.org" and can cache it locally using ROOM.
+User gets News feeds from remote API "https://newsapi.org" and ROOM is used cache it locally.
 Details of News article can be viewed in WebView.
 
 Architecture: MVVM
 
-Libraries: Retrofit, GSON, ROOM, DaggerHilt, Glide, Navigation
+Libraries: Retrofit, GSON, ROOM, DaggerHilt, Glide, Navigation, JUnit, Mockito
