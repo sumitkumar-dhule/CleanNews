@@ -57,9 +57,9 @@ class SavedNewsViewModelTest {
 
     @Test
     fun saveArticleTest() {
-        viewModel.saveArticle(article)
-
         runBlocking {
+            viewModel.saveArticle(article)
+
             launch(Dispatchers.Main) {
                 verify(newsRepository).upsert(article)
             }
@@ -68,9 +68,9 @@ class SavedNewsViewModelTest {
 
     @Test
     fun deleteArticleTest() {
-        viewModel.deleteArticle(article)
-
         runBlocking {
+            viewModel.deleteArticle(article)
+
             launch(Dispatchers.Main) {
                 verify(newsRepository).deleteArticle(article)
             }
